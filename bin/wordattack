@@ -1,0 +1,6 @@
+#! /usr/bin/env node
+var Wordattack = require('../lib/wordattack').Wordattack
+
+var wordattack = new Wordattack
+
+wordattack.start(8088)
