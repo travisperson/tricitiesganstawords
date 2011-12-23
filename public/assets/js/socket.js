@@ -77,6 +77,16 @@
         game.exports.destroyWord(str, (id === game.playerId))
       })
 
+      socket.on('lose', function(id) {
+        console.log('Loser',id)
+        game.lose()
+      })
+
+      socket.on('win', function(id) {
+        console.log('Winner',id)
+        game.win()
+      })
+
       socket.on('state', function (state) {
         switch(state) {
           case GAME_PLAYING:
@@ -142,6 +152,26 @@
           .fadeOut(function() {
             $(this).html('')
           })
+      }
+
+      game.lose = function() {
+        used_words$.empty()
+        game.exports.resetGame()
+
+        modal$
+          .fadeIn()
+          .queue(function(n) { $(this).html('You Lost!'); n() })
+          .delay(1500)
+      }
+
+      game.win = function() {
+        used_words$.empty()
+        game.exports.resetGame()
+
+        modal$
+          .fadeIn()
+          .queue(function(n) { $(this).html('You Won!'); n() })
+          .delay(1500)
       }
 
       window.exports = typeof exports !== 'undefined' ? exports : {}
