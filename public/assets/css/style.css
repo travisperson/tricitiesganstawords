@@ -67,7 +67,7 @@
     #game-wrapper, #holder {
       overflow: hidden;
       position: absolute;
-      top: 10px;
+      top: 30px;
       bottom: 10px;
       left: 200px;
       right: 200px;
@@ -179,6 +179,19 @@
       -webkit-border-radius: 20px;
          -moz-border-radius: 20px;
               border-radius: 20px;
+    }
+    #session-url {
+      z-index:100;
+      font-family: "Shadows Into Light";
+      font-weight:bold;
+      font-size:20px;
+      margin-left:3px;
+      position:absolute;
+      top:0;
+      left:175px;
+    }
+    #session-url-input {
+      width: 300px;
     }
     .lost {
       opacity: 0.8;

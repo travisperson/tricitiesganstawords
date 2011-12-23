@@ -47,6 +47,21 @@
 
       socket.on('session_id', function (session) { 
         console.log('Joined Session! ['+session+']')
+        var url = ''
+
+        if(window.location.hostname)
+          url += window.location.hostname
+        if(window.location.port)
+          url += ':' + window.location.port
+        
+        url += '/#!' + session
+
+        $('#session-url-input').attr('value', url)
+
+        $('#session-url-input').on('click', function () {
+          $(this).focus();
+          $(this).select();
+        })
       })
 
       socket.on('attack', function(str, id) {
